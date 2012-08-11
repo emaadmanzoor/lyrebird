@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <script type="text/javascript">
+        var SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+        var BASE_URL = {{ request.base_url|tojson|safe }};
+        var ITEMID = parseInt({{ itemid|tojson|safe }});
+        var IMAGEDATA = {{ session.imageData|tojson|safe }};
+    </script>
+
+    <div id="base" class="span-24 append-bottom last">
+        <canvas id="baseCanvas">&nbsp;</canvas>
+    </div>
+    <hr/>
+    <div class="span-24 last">
+        <p id="message" style="text-align: center">Erase sections of the base font not needed in this stroke.</p>
+    </div>
+{% endblock %}

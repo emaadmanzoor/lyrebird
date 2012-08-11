@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lyrebird</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/screen.css') }}" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" media="screen"/>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.6.4.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="span-19"><h1 class="fancy">LenSense Trainer</h1></div>
+            <div id="nav" class="span-5 last" style="text-align: right;"></div>
+            <hr/>
+            {% block body %}{% endblock %}
+            <hr/>
+        </div>
+    </body>
+</html>
+    

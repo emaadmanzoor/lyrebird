@@ -1,0 +1,26 @@
+a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #555;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+#nextBtn, #finishBtn {
+    cursor: pointer;
+}
+
+#nextBtn:hover, #finishBtn:hover {
+    text-decoration: underline;
+}
+
+div.colborder {
+    border-right: 1px solid #ccc;
+}
