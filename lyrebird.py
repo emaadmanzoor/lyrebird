@@ -30,7 +30,7 @@ def generate(hashtag):
     words = [word for word in words if word.lower() != fullHashTag] 
 
     lm = NgramModel(2, words)
-    generatedTweet = ' '.join(lm.generate(30))
+    generatedTweet = ' '.join(lm.generate(20))
     generatedTweet = generatedTweet + ' ' + fullHashTag
 
     return generatedTweet
@@ -41,6 +41,7 @@ def tweet(generatedTweet):
     auth.set_access_token( ACCESS_TOKEN, ACCESS_SECRET_TOKEN )
     api = tweepy.API(auth)
     api.update_status( generatedTweet )
+    return "foo"
 
 @app.route('/')
 def index():

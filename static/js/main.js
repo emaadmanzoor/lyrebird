@@ -22,6 +22,13 @@ $(document).ready(function() {
         });
     });
 
+    $('#tweetnow').click(function() {
+        var tweet = $('#tweettext').text();
+        $.get('tweet/' + escape(tweet), function(data) {
+            console.log("Tweeted: " + escape(tweet));
+        });
+    });
+
     function refreshtweet() {
         var hashtag = $('#hashtag').text();
         hashtag = hashtag.substr(1, hashtag.length);
