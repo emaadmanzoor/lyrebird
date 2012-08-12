@@ -14,7 +14,8 @@ app = Flask(__name__)
 
 @app.route('/generate/<hashtag>')
 def generate(hashtag):
-    url = "http://query.yahooapis.com/v1/public/yql?q=select%20text%20from%20twitter.search%20where%20q%3D'%23" + hashtag + "'%3B&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
+    escapedhashtag = urllib2.quote(hashtag)
+    url = "http://query.yahooapis.com/v1/public/yql?q=select%20text%20from%20twitter.search%20where%20q%3D'%23" + escapedhashtag + "'%3B&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
 
     #f = open('static/data/tweets', 'r')
     #tweets = f.read().splitlines()
