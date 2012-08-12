@@ -1,17 +1,41 @@
-{% extends 'layout.html' %}
-{% block body %}
-    <script type="text/javascript">
-        var SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-        var BASE_URL = {{ request.base_url|tojson|safe }};
-        var ITEMID = parseInt({{ itemid|tojson|safe }});
-        var IMAGEDATA = {{ session.imageData|tojson|safe }};
-    </script>
-
-    <div id="base" class="span-24 append-bottom last">
-        <canvas id="baseCanvas">&nbsp;</canvas>
-    </div>
-    <hr/>
-    <div class="span-24 last">
-        <p id="message" style="text-align: center">Erase sections of the base font not needed in this stroke.</p>
-    </div>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lyrebird</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/screen.css') }}" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" media="screen"/>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.6.4.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script type="text/javascript">
+            var SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+            var BASE_URL = {{ request.base_url|tojson|safe }};
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <br/>
+            <center>
+            <div id="#logo" class="span-24 last">
+                <img src="{{ url_for('static', filename='images/lyrebird-logo.jpg') }}" width=407 height=200/>
+            </div>
+            <div id="#caption" class="span-24 last">
+                <p class=caps>Empowering the uninformed, since 2012.</p>
+            </div>
+            <div class="push-9 span-6 last" style="margin-bottom: 0;"><hr style="margin: 0 0 1em"/></div>
+            <div class="span-24 last">
+                <!--<span id=location class=caps>Sheraton, Bangalore</span>&nbsp;<a id=changelocation class=fancy href=#>Change</a><br/>-->
+                <span id=hashtag class=caps>#openhack2012</span>&nbsp;<a id=changehashtag class=fancy href=#>Change</a>
+            </div>
+            <div class="push-6 span-12 last">
+                <h1 id=tweettext style="line-height: 1.4em; font-family: Georgia;">The quick brown fox jumped over the lazy dog. Little has a daisy dog,
+                daisy dog, daisy dog.</h1>
+            </div>
+            <div class="push-9 span-6 last" style="margin-bottom: 0;"><hr style="margin: 0 0 1em"/></div>
+            <div class="span-24 last">
+                <a id=refreshtweet href="javascript:void(0);" class=fancy>Refresh</a>&nbsp;
+                <a id=tweetnow href="javascript:void(0);" class=fancy>Tweet</a>
+            </div>
+            </center>
+        </div>
+    </body>
+</html>

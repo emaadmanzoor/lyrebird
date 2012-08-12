@@ -1,26 +1,19 @@
+hr {
+    background: #999;
+}
+
+a {
+    color: #666;
+}
+
 a:link {
-    color: #000;
-    text-decoration: none;
+    color: #666;
 }
 
 a:hover {
-    color: #555;
-    text-decoration: underline;
+    color: #888;
 }
 
 a:visited {
-    color: #000;
-    text-decoration: none;
-}
-
-#nextBtn, #finishBtn {
-    cursor: pointer;
-}
-
-#nextBtn:hover, #finishBtn:hover {
-    text-decoration: underline;
-}
-
-div.colborder {
-    border-right: 1px solid #ccc;
+    color: #666;
 }
