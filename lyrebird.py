@@ -3,6 +3,12 @@ import urllib2, json
 from twokenize import *
 from nltk.model import *
 from flask import Flask, render_template
+import tweepy
+
+CONSUMER_KEY = '5kIbQUgMTVbdn1RYWGOS5g'
+CONSUMER_SECRET = 'yTTvwoxJXuhEaLziZVzFi6YSxQ8Os2GEtptRx43fsZw'
+ACCESS_TOKEN = "752201425-DvLQph5wlDQh7WJtP7mhaZFeIDoDq5KAJDpyF5O2"
+ACCESS_SECRET_TOKEN = "qAsZlnUw3OPT7RJbqSHnXlEWiCoRD8MSgeuDgcjh6Q"
 
 app = Flask(__name__)
 
@@ -28,6 +34,13 @@ def generate(hashtag):
     generatedTweet = generatedTweet + ' ' + fullHashTag
 
     return generatedTweet
+
+@app.route('/tweet/<generatedTweet>')
+def tweet(generatedTweet):
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token( ACCESS_TOKEN, ACCESS_SECRET_TOKEN )
+    api = tweepy.API(auth)
+    api.update_status( generatedTweet )
 
 @app.route('/')
 def index():
